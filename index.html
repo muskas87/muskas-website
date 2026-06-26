@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muskas (Hainan) Trading Company Ltd</title>
+<style>
+:root {
+  --dark-green: #1a3c34;
+  --dark-green-rgb: 26,60,52;
+  --gold: #c8a951;
+  --gold-rgb: 200,169,81;
+  --cream: #f5f1e8;
+  --white: #ffffff;
+  --text-dark: #1a1a1a;
+  --text-muted: #6b7280;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.10);
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.7;
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+
+/* ── NAVIGATION ── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 16px 0;
+  transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+}
+.navbar.scrolled {
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  padding: 10px 0;
+}
+.nav-inner {
+  max-width: 1240px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 1.25rem; font-weight: 700; color: var(--white);
+  transition: color var(--transition);
+}
+.navbar.scrolled .nav-brand { color: var(--dark-green); }
+.nav-brand img { height: 40px; width: auto; }
+.nav-links {
+  display: flex; align-items: center; gap: 28px;
+}
+.nav-links a {
+  font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,0.85);
+  transition: color var(--transition); position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+  background: var(--gold); transition: width var(--transition);
+}
+.nav-links a:hover::after { width: 100%; }
+.navbar.scrolled .nav-links a { color: var(--text-dark); }
+.nav-links a:hover { color: var(--gold); }
+.navbar.scrolled .nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold); color: var(--dark-green);
+  padding: 10px 24px; border-radius: 8px;
+  font-weight: 600; font-size: 0.9rem;
+  transition: background var(--transition), transform var(--transition);
+}
+.nav-cta:hover { background: #b89a45; transform: translateY(-1px); }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; padding: 4px;
+}
+.hamburger span {
+  width: 26px; height: 2px; background: var(--white);
+  transition: background var(--transition), transform var(--transition);
+}
+.navbar.scrolled .hamburger span { background: var(--text-dark); }
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(26,60,52,0.97); z-index: 999;
+  flex-direction: column; align-items: center; justify-content: center; gap: 24px;
+  opacity: 0; pointer-events: none; transition: opacity var(--transition);
+}
+.mobile-menu.open { opacity: 1; pointer-events: all; }
+.mobile-menu a {
+  color: var(--white); font-size: 1.3rem; font-weight: 500;
+  padding: 8px 0; transition: color var(--transition);
+}
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu .nav-cta { margin-top: 16px; font-size: 1rem; padding: 14px 36px; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #0f2b24 0%, var(--dark-green) 40%, #234d42 100%);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 120px 24px 80px; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(var(--gold-rgb),0.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -30%; left: -10%; width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(var(--gold-rgb),0.05) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero-logo { height: 100px; margin: 0 auto 24px; filter: brightness(1.1); }
+.hero-badge {
+  display: inline-block; padding: 8px 20px; border-radius: 50px;
+  background: rgba(var(--gold-rgb),0.15); border: 1px solid rgba(var(--gold-rgb),0.3);
+  color: var(--gold); font-size: 0.85rem; font-weight: 500; letter-spacing: 1px;
+  margin-bottom: 28px;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; color: var(--white);
+  margin-bottom: 20px; letter-spacing: -0.5px; line-height: 1.15;
+}
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.15rem); color: rgba(255,255,255,0.75);
+  max-width: 620px; margin: 0 auto 36px; line-height: 1.8;
+}
+.hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-gold {
+  background: var(--gold); color: var(--dark-green);
+  padding: 14px 36px; border-radius: 8px;
+  font-weight: 600; font-size: 1rem;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.btn-gold:hover { background: #b89a45; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(var(--gold-rgb),0.35); }
+.btn-outline {
+  border: 2px solid rgba(255,255,255,0.35); color: var(--white);
+  padding: 14px 36px; border-radius: 8px;
+  font-weight: 600; font-size: 1rem; background: transparent;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+/* ── SECTIONS ── */
+.section { padding: 100px 24px; }
+.section-white { background: var(--white); }
+.section-cream { background: var(--cream); }
+.section-dark {
+  background: linear-gradient(135deg, var(--dark-green), #234d42);
+  color: var(--white); text-align: center;
+}
+.section-light { background: #faf8f3; }
+.container { max-width: 1240px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-badge {
+  display: inline-block; padding: 6px 18px; border-radius: 50px;
+  background: rgba(var(--gold-rgb),0.1); color: var(--gold);
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.section-dark .section-badge { background: rgba(var(--gold-rgb),0.2); }
+.section-header h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700;
+  color: var(--text-dark); margin-bottom: 12px; letter-spacing: -0.3px;
+}
+.section-dark .section-header h2 { color: var(--white); }
+.section-header p { color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
+.section-dark .section-header p { color: rgba(255,255,255,0.7); }
+
+/* ── CARDS GRID ── */
+.cards-grid {
+  display: grid; gap: 24px;
+}
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-5 { grid-template-columns: repeat(5, 1fr); }
+.grid-6 { grid-template-columns: repeat(6, 1fr); }
+
+.card {
+  background: var(--white); border-radius: var(--radius);
+  padding: 32px 24px; box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.card-icon {
+  width: 52px; height: 52px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.card-icon svg { width: 26px; height: 26px; }
+.card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text-dark); }
+.card p { color: var(--text-muted); font-size: 0.92rem; line-height: 1.7; }
+.card-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--gold); font-weight: 600; font-size: 0.9rem;
+  margin-top: 16px; transition: gap var(--transition);
+}
+.card-link:hover { gap: 10px; }
+.card-link svg { width: 16px; height: 16px; }
+
+/* Icon Colors */
+.icon-green { background: rgba(var(--dark-green-rgb),0.08); color: var(--dark-green); }
+.icon-green svg { stroke: var(--dark-green); }
+.icon-gold { background: rgba(var(--gold-rgb),0.12); color: var(--gold); }
+.icon-gold svg { stroke: var(--gold); }
+.icon-teal { background: rgba(20,184,166,0.1); }
+.icon-teal svg { stroke: #14b8a6; }
+.icon-amber { background: rgba(245,158,11,0.1); }
+.icon-amber svg { stroke: #f59e0b; }
+.icon-rose { background: rgba(244,63,94,0.08); }
+.icon-rose svg { stroke: #f43f5e; }
+.icon-indigo { background: rgba(99,102,241,0.08); }
+.icon-indigo svg { stroke: #6366f1; }
+.icon-sky { background: rgba(14,165,233,0.08); }
+.icon-sky svg { stroke: #0ea5e9; }
+.icon-emerald { background: rgba(16,185,129,0.08); }
+.icon-emerald svg { stroke: #10b981; }
+.icon-orange { background: rgba(249,115,22,0.08); }
+.icon-orange svg { stroke: #f97316; }
+.icon-violet { background: rgba(139,92,246,0.08); }
+.icon-violet svg { stroke: #8b5cf6; }
+.icon-cyan { background: rgba(6,182,212,0.08); }
+.icon-cyan svg { stroke: #06b6d4; }
+
+/* ── CONSTRUCTION SECTION ── */
+.construction-intro {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: start; margin-bottom: 56px;
+}
+.construction-intro .text h3 {
+  font-size: 1.6rem; font-weight: 700; margin-bottom: 16px;
+}
+.construction-intro .text p { color: var(--text-muted); font-size: 1rem; }
+.checklist { display: flex; flex-direction: column; gap: 14px; }
+.checklist-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 20px; border-radius: 10px;
+  background: var(--white); box-shadow: var(--shadow-sm);
+  font-weight: 500; font-size: 0.95rem;
+}
+.checklist-item svg { width: 22px; height: 22px; stroke: var(--gold); flex-shrink: 0; }
+
+/* ── TRADE CORRIDORS ── */
+.corridors { margin-top: 56px; text-align: center; }
+.corridors h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 24px; }
+.corridor-tags { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.corridor-tag {
+  padding: 12px 24px; border-radius: 50px;
+  background: var(--cream); font-weight: 600; font-size: 0.92rem;
+  color: var(--dark-green); border: 1px solid rgba(var(--dark-green-rgb),0.1);
+  transition: background var(--transition), transform var(--transition);
+}
+.corridor-tag:hover { background: var(--gold); color: var(--white); transform: translateY(-2px); }
+
+/* ── WHY CHOOSE US ── */
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.why-card {
+  text-align: center; padding: 40px 24px; border-radius: var(--radius);
+  background: var(--white); box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.why-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: rgba(var(--gold-rgb),0.1);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+}
+.why-icon svg { width: 28px; height: 28px; stroke: var(--gold); }
+.why-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+.why-card p { color: var(--text-muted); font-size: 0.92rem; }
+
+/* ── CTA BANNER ── */
+.cta-section {
+  padding: 80px 24px; text-align: center;
+  background: linear-gradient(135deg, var(--dark-green), #234d42);
+  color: var(--white); position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(var(--gold-rgb),0.06) 0%, transparent 60%);
+}
+.cta-section h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700; margin-bottom: 16px;
+  position: relative;
+}
+.cta-section p {
+  color: rgba(255,255,255,0.7); font-size: 1.05rem; margin-bottom: 32px;
+  max-width: 540px; margin-left: auto; margin-right: auto; position: relative;
+}
+
+/* ── CONTACT ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+.contact-info h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+.contact-info > p { color: var(--text-muted); margin-bottom: 28px; }
+.contact-detail {
+  display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px;
+}
+.contact-detail svg { width: 20px; height: 20px; stroke: var(--gold); flex-shrink: 0; margin-top: 3px; }
+.contact-detail span { font-size: 0.95rem; color: var(--text-muted); }
+.contact-detail strong { color: var(--text-dark); display: block; font-size: 0.85rem; margin-bottom: 2px; }
+.legal-rep {
+  margin-top: 28px; padding: 20px; border-radius: 10px;
+  background: var(--cream); border-left: 4px solid var(--gold);
+}
+.legal-rep strong { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); }
+.legal-rep p { font-size: 1.1rem; font-weight: 600; margin-top: 4px; }
+
+.contact-form {
+  background: var(--white); padding: 36px; border-radius: var(--radius);
+  box-shadow: var(--shadow-md); border: 1px solid rgba(0,0,0,0.04);
+}
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-group label {
+  display: block; font-size: 0.85rem; font-weight: 600;
+  margin-bottom: 6px; color: var(--text-dark);
+}
+.form-group label .req { color: #ef4444; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 12px 16px; border: 1.5px solid #e5e7eb;
+  border-radius: 8px; font-size: 0.95rem; color: var(--text-dark);
+  background: var(--white); transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold); box-shadow: 0 0 0 3px rgba(var(--gold-rgb),0.12);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-submit {
+  width: 100%; padding: 14px; border-radius: 8px;
+  background: var(--dark-green); color: var(--white);
+  font-weight: 600; font-size: 1rem;
+  transition: background var(--transition), transform var(--transition);
+}
+.form-submit:hover { background: #142e28; transform: translateY(-1px); }
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--dark-green); color: rgba(255,255,255,0.7);
+  padding: 64px 24px 0;
+}
+.footer-grid {
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px;
+  padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.footer-brand img { height: 36px; filter: brightness(1.2); }
+.footer-brand span { color: var(--white); font-weight: 700; font-size: 1.1rem; }
+.footer p { font-size: 0.9rem; line-height: 1.7; }
+.footer h4 {
+  color: var(--white); font-size: 0.95rem; font-weight: 700;
+  margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
+}
+.footer ul li { margin-bottom: 10px; }
+.footer ul a { font-size: 0.9rem; transition: color var(--transition); }
+.footer ul a:hover { color: var(--gold); }
+.footer-bottom {
+  max-width: 1240px; margin: 0 auto;
+  padding: 24px 0; text-align: center;
+  font-size: 0.85rem; color: rgba(255,255,255,0.45);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .grid-4, .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .grid-5, .grid-6 { grid-template-columns: repeat(3, 1fr); }
+  .construction-intro { grid-template-columns: 1fr; gap: 32px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-cta-desktop { display: none; }
+  .hamburger { display: flex; }
+  .mobile-menu { display: flex; }
+  .section { padding: 72px 20px; }
+  .hero { padding: 100px 20px 60px; }
+  .hero-logo { height: 72px; }
+  .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .why-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-group.full { grid-column: auto; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .card { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand">
+      <img src="logo.png" alt="Muskas Hainan">
+      <span>Muskas Hainan</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#construction">Construction</a>
+      <a href="#import-export">Import and Export</a>
+      <a href="#trading">Trading</a>
+      <a href="#business-setup">Business Setup</a>
+      <a href="#exclusive-rep">Exclusive Rep</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta nav-cta-desktop">Get in Touch</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" class="mobile-link">Home</a>
+  <a href="#construction" class="mobile-link">Construction</a>
+  <a href="#import-export" class="mobile-link">Import and Export</a>
+  <a href="#trading" class="mobile-link">Trading</a>
+  <a href="#business-setup" class="mobile-link">Business Setup</a>
+  <a href="#exclusive-rep" class="mobile-link">Exclusive Rep</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="#contact" class="btn-gold mobile-link">Get in Touch</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <img src="logo.png" alt="Muskas Hainan" class="hero-logo">
+    <div class="hero-badge">Established 2025 &middot; Hainan, China</div>
+    <h1>Muskas Hainan</h1>
+    <p>Your trusted partner for construction materials, international import and export, and comprehensive general trading services connecting China to the world.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-gold">Contact Us</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES OVERVIEW -->
+<section class="section section-white" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">What We Do</span>
+      <h2>Our Core Business</h2>
+      <p>Comprehensive trade, construction, and business services tailored for international success.</p>
+    </div>
+    <div class="cards-grid grid-5">
+
+      <div class="card">
+        <div class="card-icon icon-green">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>
+        </div>
+        <h3>Construction Materials</h3>
+        <p>Premium building supplies sourced from top manufacturers for projects of every scale.</p>
+        <a href="#construction" class="card-link">Learn more <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon icon-gold">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3>Import and Export</h3>
+        <p>Seamless international trade leveraging Hainan Free Trade Port advantages.</p>
+        <a href="#import-export" class="card-link">Learn more <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon icon-teal">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <h3>General Trading</h3>
+        <p>Diverse product portfolio spanning consumer goods, electronics, industrial equipment, and more.</p>
+        <a href="#trading" class="card-link">Learn more <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon icon-indigo">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <h3>Business Setup</h3>
+        <p>End-to-end company formation and support services for foreign investors in Hainan.</p>
+        <a href="#business-setup" class="card-link">Learn more <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon icon-amber">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Exclusive Representative</h3>
+        <p>Acting as your dedicated local partner and representative for market entry in China.</p>
+        <a href="#exclusive-rep" class="card-link">Learn more <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONSTRUCTION MATERIALS -->
+<section class="section section-cream" id="construction">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Building the Future</span>
+      <h2>Construction Materials</h2>
+      <p>Premium quality construction materials sourced from China's leading manufacturers, delivered globally.</p>
+    </div>
+
+    <div class="construction-intro">
+      <div class="text">
+        <h3>Comprehensive Material Solutions</h3>
+        <p>We supply a full range of construction materials for residential, commercial, and infrastructure projects. Our deep relationships with manufacturers in China ensure competitive pricing, consistent quality, and reliable supply chains for every project need.</p>
+      </div>
+      <div class="checklist">
+        <div class="checklist-item">
+          <svg fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Quality Assurance
+        </div>
+        <div class="checklist-item">
+          <svg fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Bulk Procurement
+        </div>
+        <div class="checklist-item">
+          <svg fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Timely Delivery
+        </div>
+        <div class="checklist-item">
+          <svg fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Custom Sourcing
+        </div>
+      </div>
+    </div>
+
+    <div class="cards-grid grid-3">
+      <div class="card">
+        <div class="card-icon icon-green">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+        </div>
+        <h3>Cement and Concrete</h3>
+        <p>High-grade Portland cement, ready-mix concrete, and specialized concrete products for all construction needs.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-amber">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Steel and Structural</h3>
+        <p>Rebar, structural steel beams, sheets, and coils sourced from certified Chinese steel mills.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-sky">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 3v18M3 12h18M5.636 5.636l12.728 12.728M18.364 5.636L5.636 18.364"/></svg>
+        </div>
+        <h3>Building Finishes</h3>
+        <p>Tiles, ceramics, paint, glass, and decorative finishes for interior and exterior applications.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-emerald">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        </div>
+        <h3>Aggregates</h3>
+        <p>Sand, gravel, crushed stone, and other essential aggregates for concrete production and road base.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-violet">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M18 12h4M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg>
+        </div>
+        <h3>Plumbing and Electrical</h3>
+        <p>Pipes, fittings, cables, switches, and all essential plumbing and electrical supplies.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-orange">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 14V2M7 22V10M12 6v12"/></svg>
+        </div>
+        <h3>Timber</h3>
+        <p>Structural timber, plywood, MDF, and treated wood products for framing and finishing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPORT AND EXPORT -->
+<section class="section section-white" id="import-export">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Global Trade</span>
+      <h2>Import and Export</h2>
+      <p>Leveraging Hainan Free Trade Port policies for seamless international commerce.</p>
+    </div>
+
+    <div style="text-align:center; max-width:720px; margin:0 auto 48px;">
+      <p style="color:var(--text-muted); font-size:1.05rem; line-height:1.8;">Hainan Free Trade Port offers unique policy advantages including reduced tariffs, streamlined customs procedures, and preferential trade arrangements. Muskas Hainan leverages these benefits to provide efficient import and export services, connecting Chinese manufacturers with global markets and bringing international products into China.</p>
+    </div>
+
+    <div class="cards-grid grid-4">
+      <div class="card">
+        <div class="card-icon icon-green">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </div>
+        <h3>Export Facilitation</h3>
+        <p>End-to-end export services from documentation to delivery, ensuring your products reach international markets efficiently.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+        </div>
+        <h3>Import Services</h3>
+        <p>Strategic sourcing from global suppliers with quality verification, negotiation, and seamless import processing.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-teal">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        </div>
+        <h3>Customs and Compliance</h3>
+        <p>Expert guidance on customs regulations, tariff classifications, trade compliance, and documentation requirements.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-indigo">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5a2 2 0 01-2 2h-1M6 19a2 2 0 100-4 2 2 0 000 4zM18 19a2 2 0 100-4 2 2 0 000 4z"/></svg>
+        </div>
+        <h3>Logistics and Shipping</h3>
+        <p>Complete logistics management including sea freight, air cargo, warehousing, and last-mile delivery solutions.</p>
+      </div>
+    </div>
+
+    <div class="corridors">
+      <h3>Key Trade Corridors</h3>
+      <div class="corridor-tags">
+        <span class="corridor-tag">Southeast Asia</span>
+        <span class="corridor-tag">Middle East</span>
+        <span class="corridor-tag">Africa</span>
+        <span class="corridor-tag">Europe</span>
+        <span class="corridor-tag">Australia</span>
+        <span class="corridor-tag">New Zealand</span>
+        <span class="corridor-tag">North America</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GENERAL TRADING -->
+<section class="section section-cream" id="trading">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Diverse Portfolio</span>
+      <h2>General Trading</h2>
+      <p>A wide-ranging trading portfolio connecting quality products from China to markets worldwide.</p>
+    </div>
+
+    <div class="cards-grid grid-3">
+      <div class="card">
+        <div class="card-icon icon-green">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <h3>Consumer Goods</h3>
+        <p>Everyday products, household items, and fast-moving consumer goods from Chinese manufacturers at competitive prices.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-amber">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        </div>
+        <h3>Industrial Equipment</h3>
+        <p>Machinery, tools, and industrial equipment for manufacturing, construction, and processing industries.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-sky">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Electronics</h3>
+        <p>Consumer electronics, components, and technology products from leading Chinese tech manufacturers.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-emerald">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+        </div>
+        <h3>Food and Beverage</h3>
+        <p>Chinese food products, ingredients, beverages, and agricultural commodities for international distribution.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-rose">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Textiles</h3>
+        <p>Fabrics, garments, raw textiles, and fashion products from China's world-renowned textile industry.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-violet">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 3v2m6-2v2M12 3v2M3 9h18M5 9v10a2 2 0 002 2h10a2 2 0 002-2V9"/></svg>
+        </div>
+        <h3>Chemical Products</h3>
+        <p>Industrial chemicals, raw materials, and specialty chemical products with full compliance documentation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS SETUP -->
+<section class="section section-white" id="business-setup">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Start in Hainan</span>
+      <h2>Business Setup Services</h2>
+      <p>Comprehensive support for foreign enterprises establishing a presence in Hainan Free Trade Port.</p>
+    </div>
+
+    <div class="cards-grid grid-3">
+      <div class="card">
+        <div class="card-icon icon-green">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <h3>Company Registration</h3>
+        <p>Full company formation services including WFOE, joint venture, or representative office registration in Hainan.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Accounting Services</h3>
+        <p>Professional bookkeeping, tax filing, financial reporting, and compliance with Chinese accounting standards.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-teal">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
+        </div>
+        <h3>Office Setup</h3>
+        <p>Finding and securing office space, co-working arrangements, and virtual office solutions in Hainan.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-indigo">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Staff and HR</h3>
+        <p>Recruitment support, labor contract management, payroll administration, and HR compliance services.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-amber">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <h3>Immigration Services</h3>
+        <p>Work visa applications, residence permits, and expatriate support for foreign nationals in China.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-rose">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8m-8 8l8-8m8 8l-8-8m8-8l-8 8"/></svg>
+        </div>
+        <h3>Translation and Apostille</h3>
+        <p>Professional document translation, notarization, and apostille services for cross-border business needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXCLUSIVE REPRESENTATIVE -->
+<section class="section section-cream" id="exclusive-rep">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Your Local Partner</span>
+      <h2>Exclusive Representative</h2>
+      <p>Acting as your dedicated on-the-ground representative and business partner in Hainan and across China.</p>
+    </div>
+
+    <div class="cards-grid grid-3" style="max-width:900px; margin:0 auto;">
+      <div class="card">
+        <div class="card-icon icon-green">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        </div>
+        <h3>Market Entry Strategy</h3>
+        <p>Tailored strategies for entering the Chinese market, including market research, competitive analysis, and positioning.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3>Distribution Network</h3>
+        <p>Access to established distribution channels and partnerships across China's retail and wholesale networks.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-teal">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Brand Management</h3>
+        <p>Protecting and promoting your brand in China through trademark registration, marketing, and reputation management.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-indigo">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Regulatory Navigation</h3>
+        <p>Expert guidance through China's regulatory landscape, licensing requirements, and industry-specific compliance.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-amber">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Ongoing Partnership</h3>
+        <p>Long-term dedicated support with regular reporting, strategy reviews, and continuous business development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section section-light" id="why-us">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Why Muskas</span>
+      <h2>Why Choose Us</h2>
+      <p>The qualities that set us apart as your trusted trading and business partner.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Trust and Integrity</h3>
+        <p>Transparent business practices and honest communication form the foundation of every relationship we build.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3>Global Network</h3>
+        <p>Established connections spanning multiple continents, enabling efficient trade across key global markets.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5a2 2 0 01-2 2h-1M6 19a2 2 0 100-4 2 2 0 000 4zM18 19a2 2 0 100-4 2 2 0 000 4z"/></svg>
+        </div>
+        <h3>Reliable Delivery</h3>
+        <p>Proven logistics expertise ensuring your goods arrive on time, in full, and in perfect condition.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>Personal Service</h3>
+        <p>Dedicated account management with personalized attention to your unique business requirements and goals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-section">
+  <h2>Ready to Partner with Us?</h2>
+  <p>Whether you need construction materials, import-export support, or help establishing your business in Hainan, we're here to help.</p>
+  <a href="#contact" class="btn-gold" style="position:relative;">Get in Touch Today</a>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-white" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-badge">Contact Us</span>
+      <h2>Get in Touch</h2>
+      <p>We'd love to hear from you. Reach out to start a conversation about your business needs.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Muskas (Hainan) Trading Company Ltd</h3>
+        <p>Your gateway to business in Hainan Free Trade Port, China.</p>
+
+        <div class="contact-detail">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><strong>Address</strong>Hainan Province, China</span>
+        </div>
+        <div class="contact-detail">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span><strong>Phone</strong>+86 183 0890 1960</span>
+        </div>
+        <div class="contact-detail">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          <span><strong>WhatsApp</strong>+86 183 0890 1960</span>
+        </div>
+        <div class="contact-detail">
+          <svg fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          <span><strong>Email</strong>musa@muskasconsultants.com</span>
+        </div>
+
+        <div class="legal-rep">
+          <strong>Legal Representative</strong>
+          <p>KASULE MUSA</p>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Name <span class="req">*</span></label>
+            <input type="text" name="name" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" name="email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="+1 234 567 890">
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" name="company" placeholder="Company name">
+          </div>
+          <div class="form-group">
+            <label>Service</label>
+            <select name="service">
+              <option value="">Select a service</option>
+              <option>Construction Materials</option>
+              <option>Import and Export</option>
+              <option>General Trading</option>
+              <option>Business Setup</option>
+              <option>Exclusive Representative</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Inquiry Type</label>
+            <select name="inquiry">
+              <option value="">Select inquiry type</option>
+              <option>General Inquiry</option>
+              <option>Price Quote</option>
+              <option>Partnership</option>
+              <option>Support</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>Message <span class="req">*</span></label>
+            <textarea name="message" required placeholder="Tell us about your project or requirements..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="logo.png" alt="Muskas Hainan">
+        <span>Muskas Hainan</span>
+      </div>
+      <p>Your trusted partner for construction materials, international trade, and business services connecting China to the world. Based in Hainan Free Trade Port.</p>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#construction">Construction Materials</a></li>
+        <li><a href="#import-export">Import and Export</a></li>
+        <li><a href="#trading">General Trading</a></li>
+        <li><a href="#business-setup">Business Setup</a></li>
+        <li><a href="#exclusive-rep">Exclusive Representative</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+8618308901960">+86 183 0890 1960</a></li>
+        <li><a href="mailto:musa@muskasconsultants.com">musa@muskasconsultants.com</a></li>
+        <li><a href="#contact">WhatsApp</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Location</h4>
+      <ul>
+        <li><a href="#contact">Hainan Province</a></li>
+        <li><a href="#contact">China</a></li>
+        <li style="margin-top:12px; font-size:0.85rem; color:rgba(255,255,255,0.5);">Legal Representative:<br><strong style="color:rgba(255,255,255,0.8);">KASULE MUSA</strong></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Muskas (Hainan) Trading Company Ltd. All rights reserved.
+  </div>
+</footer>
+
+<script>
+(function() {
+  // Navbar scroll effect
+  var navbar = document.getElementById('navbar');
+  var scrollThreshold = 50;
+
+  function handleScroll() {
+    if (window.scrollY > scrollThreshold) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  // Mobile menu toggle
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  var mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Intersection Observer for fade-in animation
+  var cards = document.querySelectorAll('.card, .why-card, .checklist-item, .corridor-tag');
+  cards.forEach(function(el) {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  });
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    cards.forEach(function(el) { observer.observe(el); });
+  } else {
+    cards.forEach(function(el) {
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+  }
+})();
+
+function handleSubmit(e) {
+  e.preventDefault();
+  var form = e.target;
+  var btn = form.querySelector('.form-submit');
+  btn.textContent = 'Message Sent!';
+  btn.style.background = '#10b981';
+  setTimeout(function() {
+    btn.textContent = 'Send Message';
+    btn.style.background = '';
+    form.reset();
+  }, 3000);
+}
+</script>
+</body>
+</html>

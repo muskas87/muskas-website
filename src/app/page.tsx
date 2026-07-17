@@ -816,25 +816,10 @@ function ContactPage() {
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-5 w-5 text-emerald-600" />
+                    <MessageCircle className="h-5 w-5 text-emerald-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-primary mb-1">Phone / WeChat</h4>
-                    <a
-                      href="weixin://dl/chat?18308901960"
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      +86 183 0890 1960
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="h-5 w-5 text-green-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-primary mb-1">WhatsApp</h4>
+                    <h4 className="font-semibold text-primary mb-1">WeChat & WhatsApp</h4>
                     <a
                       href="https://wa.me/8618308901960"
                       target="_blank"
@@ -843,6 +828,7 @@ function ContactPage() {
                     >
                       +86 183 0890 1960
                     </a>
+                    <p className="text-xs text-muted-foreground/70 mt-0.5">Same number for both WeChat & WhatsApp</p>
                   </div>
                 </div>
 
@@ -1334,11 +1320,7 @@ function InquiryPage() {
               </h4>
               <div className="space-y-2 text-sm text-muted-foreground">
                 <p className="flex items-center gap-2">
-                  <Phone className="h-4 w-4" /> Phone / WeChat:{" "}
-                  <strong>+86 183 0890 1960</strong>
-                </p>
-                <p className="flex items-center gap-2">
-                  <MessageCircle className="h-4 w-4" /> WhatsApp:{" "}
+                  <MessageCircle className="h-4 w-4" /> WeChat & WhatsApp:{" "}
                   <strong>+86 183 0890 1960</strong>
                 </p>
                 <p className="flex items-center gap-2">
@@ -1693,15 +1675,9 @@ function Footer({ onNavigate }: { onNavigate: (page: Page) => void }) {
             <h4 className="text-white font-semibold text-sm mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-white/60">
               <li className="flex items-center gap-2">
-                <Phone className="h-3.5 w-3.5" />
-                <a href="weixin://dl/chat?18308901960" className="hover:text-muskas-gold transition-colors">
-                  +86 183 0890 1960
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
                 <MessageCircle className="h-3.5 w-3.5" />
-                <a href="https://wa.me/8618308901960" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition-colors">
-                  WhatsApp
+                <a href="https://wa.me/8618308901960" target="_blank" rel="noopener noreferrer" className="hover:text-muskas-gold transition-colors">
+                  WeChat & WhatsApp: +86 183 0890 1960
                 </a>
               </li>
               <li className="flex items-center gap-2">
